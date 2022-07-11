@@ -1,12 +1,11 @@
 pipeline {
      agent any
      stages {
-         stage('Build') {
-             steps {
-                 sh 'ls -lah'
-                 
-             }
-         }      
+        stage('Build') { 
+            steps { 
+                sh 'make' 
+            }
+        }
          stage('Upload to AWS') {
               steps {
                   withAWS(region:'us-east-1',credentials:'s3 access') {
